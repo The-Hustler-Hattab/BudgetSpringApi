@@ -9,12 +9,12 @@ import lombok.Setter;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "email")
+@Table(name = "budget")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class EmailTableEntity {
+public class BudgetTableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +23,20 @@ public class EmailTableEntity {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "category", nullable = false)
+    private String category;
+    @Column(name = "cost", nullable = false)
+    private Integer cost;
+    @Column(name = "color", nullable = false)
+    private String color;
 
     @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp createdAt;
+    @Column(name = "created_by", nullable = false)
+    private String createdBy;
+
+    @Column(name = "updated_at", nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Timestamp updatedAt;
 }
