@@ -8,11 +8,14 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Data
-//@AllArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor
 public class ResponseRestModel {
     int statusCode;
     String statusMessage;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    List<BudgetModel> budgetModels;
 
 
     public ResponseRestModel(int statusCode, String statusMessage){

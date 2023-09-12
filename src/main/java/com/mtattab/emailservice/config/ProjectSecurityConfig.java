@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
+import static com.mtattab.emailservice.consts.Constants.CORS_LOCAL;
 
 
 @Configuration
@@ -27,11 +27,11 @@ public class ProjectSecurityConfig  {
         http
                 .authorizeRequests()
 //                .requestMatchers("/login/oauth2/authorize").permitAll()
-                .anyRequest().authenticated()
+//                .anyRequest().authenticated()
 //
 //                .and().oauth2Login()
 ////
-////                .anyRequest().permitAll()
+                .anyRequest().permitAll()
                 .and()
                 .csrf().disable()
 
@@ -46,19 +46,16 @@ public class ProjectSecurityConfig  {
                         oauth2ResourceServerCustomizer.jwt(jwtCustomizer -> jwtCustomizer.jwtAuthenticationConverter(jwtAuthenticationConverter)))
 
                .cors(
-                        corsCustomizer -> corsCustomizer.configurationSource(new CorsConfigurationSource() {
-                            @Override
-                            public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
-                                CorsConfiguration config = new CorsConfiguration();
-                                config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
-                                config.setAllowedMethods(Collections.singletonList("*"));
-                                config.setAllowCredentials(true);
-                                config.setAllowedHeaders(Collections.singletonList("*"));
-                                config.setMaxAge(3600L);
-                                return config;
-                            }
+                        corsCustomizer -> corsCustomizer.configurationSource(request -> {
+                            CorsConfiguration config = new CorsConfiguration();
+                            config.setAllowedOrigins(Collections.singletonList(CORS_LOCAL));
+                            config.setAllowedMethods(Collections.singletonList("*"));
+                            config.setAllowCredentials(true);
+                            config.setAllowedHeaders(Collections.singletonList("*"));
+                            config.setMaxAge(3600L);
+                            return config;
                         }
-                    )
+                        )
                 )
 
 ;
