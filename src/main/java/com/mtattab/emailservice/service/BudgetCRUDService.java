@@ -14,10 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
-@Data
+
 @Service
 @Slf4j
 public class BudgetCRUDService {
@@ -60,7 +59,7 @@ public class BudgetCRUDService {
             responseRestModel.setStatusCode(HttpStatus.OK.value());
             responseRestModel.setStatusMessage("record was updated successfuly");
         }else {
-            responseRestModel.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+            responseRestModel.setStatusCode(HttpStatus.BAD_REQUEST.value());
             responseRestModel.setStatusMessage("record failed to update");
         }
 
@@ -72,14 +71,12 @@ public class BudgetCRUDService {
         ResponseRestModel responseRestModel = new ResponseRestModel();
 
         int deletedRecord= budgetRepository.deleteBudgetRecord(userEmail, id);
-        responseRestModel.setStatusCode(HttpStatus.OK.value());
-        responseRestModel.setStatusMessage("record was deleted successfuly");
 
         if (deletedRecord > 0  ){
             responseRestModel.setStatusCode(HttpStatus.OK.value());
             responseRestModel.setStatusMessage("record was deleted successfuly");
         }else {
-            responseRestModel.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+            responseRestModel.setStatusCode(HttpStatus.BAD_REQUEST.value());
             responseRestModel.setStatusMessage("failed to delete record");
         }
 

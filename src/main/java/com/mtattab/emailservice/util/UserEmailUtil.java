@@ -13,10 +13,10 @@ public class UserEmailUtil {
 
 
     public static String getUserDetailByClaim(Authentication auth, String claimName){
-        if (auth.getPrincipal() instanceof Jwt){
+        if (auth.getPrincipal() instanceof Jwt){ // okta resource server
             Jwt authPrincipal = (Jwt) auth.getPrincipal();
             return authPrincipal.getClaims().get(claimName).toString().toLowerCase();
-        } else if (auth instanceof OAuth2AuthenticationToken) {
+        } else if (auth instanceof OAuth2AuthenticationToken) { // google oauth
             OAuth2AuthenticationToken auth2AuthenticationToken = (OAuth2AuthenticationToken) auth;
 
             return auth2AuthenticationToken.getPrincipal().getAttributes().get(getGoogleClaim(claimName)).toString().toLowerCase();

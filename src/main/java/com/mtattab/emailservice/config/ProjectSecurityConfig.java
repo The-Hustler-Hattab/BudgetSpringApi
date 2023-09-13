@@ -26,10 +26,9 @@ public class ProjectSecurityConfig  {
 
         http
                 .authorizeRequests()
-//                .requestMatchers("/login/oauth2/authorize").permitAll()
+                .requestMatchers("/swagger-ui/**","/v3/api-docs/**").permitAll()
                 .anyRequest().authenticated()
 //
-//                .and().oauth2Login()
 ////
 //                .anyRequest().permitAll()
                 .and()
