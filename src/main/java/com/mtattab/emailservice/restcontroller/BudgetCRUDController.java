@@ -20,6 +20,7 @@ import static com.mtattab.emailservice.consts.Constants.BUDGET_MAPPING;
 
 @RestController
 @RequestMapping(path = BUDGET_MAPPING, produces = Constants.JSON)
+@Validated
 public class BudgetCRUDController {
 
 
@@ -29,6 +30,9 @@ public class BudgetCRUDController {
     @GetMapping("/hello")
     public String helloWorld(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(auth);
+        System.out.println(auth.getPrincipal());
+
         System.out.println(UserEmailUtil.getUserDetailByClaim(SecurityContextHolder.getContext().getAuthentication() , Constants.CLAIM_FULL_NAME));
         System.out.println(UserEmailUtil.getUserDetailByClaim(SecurityContextHolder.getContext().getAuthentication() , Constants.CLAIM_EMAIL));
 
@@ -45,7 +49,7 @@ public class BudgetCRUDController {
     }
 
     @PostMapping("/saveBudgetRecord")
-    public ResponseEntity<ResponseRestModel> saveBudgetRecord(@Valid @RequestBody BudgetModel budgetModel){
+    public ResponseEntity<ResponseRestModel> saveBudgetRecord( @RequestBody @Valid BudgetModel budgetModel){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         ResponseRestModel responseRestModel= budgetCRUDService.saveBudgetRecord(
                 UserEmailUtil.getUserDetailByClaim(auth,Constants.CLAIM_EMAIL),UserEmailUtil.getUserDetailByClaim(auth,Constants.CLAIM_FULL_NAME),budgetModel);
@@ -63,10 +67,10 @@ public class BudgetCRUDController {
 
     }
     @DeleteMapping("/deleteBudgetRecord")
-    public ResponseEntity<ResponseRestModel> deleteBudgetRecord(@Valid @RequestBody BudgetModel budgetModel){
+    public ResponseEntity<ResponseRestModel> deleteBudgetRecord( @RequestBody BudgetModel budgetModel){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         ResponseRestModel responseRestModel= budgetCRUDService.deleteBudgetRecord(
-                UserEmailUtil.getUserDetailByClaim(auth,Constants.CLAIM_EMAIL),budgetModel);
+                UserEmailUtil.getUserDetailByClaim(auth,Constants.CLAIM_EMAIL),budgetModel.getId());
 
         return new ResponseEntity<>(responseRestModel, HttpStatusCode.valueOf(responseRestModel.getStatusCode()));
 

@@ -17,7 +17,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public  @interface GreaterThanValidator {
 
-    String message() default "The field length must be at least {value} or greater.";
+    String message() default "The field number must be at least {value} or greater.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 

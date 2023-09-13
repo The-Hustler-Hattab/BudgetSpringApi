@@ -24,7 +24,7 @@ public interface BudgetRepository extends JpaRepository<BudgetTableEntity, Long>
             "WHERE u.email = :email and u.id = :id")
     int updateBudgetRecord(
             @Param("category") String category,
-            @Param("cost") String cost,
+            @Param("cost") Long cost,
             @Param("color") String color,
             @Param("email") String email,
             @Param("id") Long id,

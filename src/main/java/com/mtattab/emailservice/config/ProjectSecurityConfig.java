@@ -27,11 +27,11 @@ public class ProjectSecurityConfig  {
         http
                 .authorizeRequests()
 //                .requestMatchers("/login/oauth2/authorize").permitAll()
-//                .anyRequest().authenticated()
+                .anyRequest().authenticated()
 //
 //                .and().oauth2Login()
 ////
-                .anyRequest().permitAll()
+//                .anyRequest().permitAll()
                 .and()
                 .csrf().disable()
 
@@ -57,6 +57,7 @@ public class ProjectSecurityConfig  {
                         }
                         )
                 )
+                .oauth2Login()
 
 ;
         return http.build();

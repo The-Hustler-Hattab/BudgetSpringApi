@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -40,16 +41,20 @@ public class BudgetCRUDService {
     public ResponseRestModel saveBudgetRecord(String userEmail ,String userFullName ,  BudgetModel budgetModel){
         ResponseRestModel responseRestModel = new ResponseRestModel();
         BudgetTableEntity budgetTableEntity = new BudgetTableEntity(budgetModel,userEmail,userFullName);
+        budgetTableEntity.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
         budgetRepository.save(budgetTableEntity);
         responseRestModel.setStatusCode(HttpStatus.OK.value());
         responseRestModel.setStatusMessage("records saved successfuly");
         return responseRestModel;
     }
+    @Transactional
     public ResponseRestModel updateBudgetRecord(String userEmail ,  BudgetModel budgetModel){
         ResponseRestModel responseRestModel = new ResponseRestModel();
 
         int updatedRecs= budgetRepository.updateBudgetRecord(
-                budgetModel.getCategory(), budgetModel.getCategory(), budgetModel.getColor(), userEmail, budgetModel.getId(), Timestamp.valueOf(LocalDateTime.now()));
+                budgetModel.getCategory(), budgetModel.getCost(),
+                budgetModel.getColor(), userEmail, budgetModel.getId(),
+                Timestamp.valueOf(LocalDateTime.now()));
 
         if (updatedRecs > 0  ){
             responseRestModel.setStatusCode(HttpStatus.OK.value());
@@ -62,10 +67,11 @@ public class BudgetCRUDService {
         return responseRestModel;
     }
 
-    public ResponseRestModel deleteBudgetRecord(String userEmail ,  BudgetModel budgetModel){
+    @Transactional
+    public ResponseRestModel deleteBudgetRecord(String userEmail ,  Long id){
         ResponseRestModel responseRestModel = new ResponseRestModel();
 
-        int deletedRecord= budgetRepository.deleteBudgetRecord(userEmail, budgetModel.getId());
+        int deletedRecord= budgetRepository.deleteBudgetRecord(userEmail, id);
         responseRestModel.setStatusCode(HttpStatus.OK.value());
         responseRestModel.setStatusMessage("record was deleted successfuly");
 
