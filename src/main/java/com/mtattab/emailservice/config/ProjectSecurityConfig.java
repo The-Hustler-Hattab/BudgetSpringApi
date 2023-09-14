@@ -27,6 +27,7 @@ public class ProjectSecurityConfig  {
         http
                 .authorizeRequests()
                 .requestMatchers("/swagger-ui/**","/v3/api-docs/**").permitAll()
+                .requestMatchers("/", "about").permitAll()
                 .anyRequest().authenticated()
 //
 ////
@@ -57,6 +58,7 @@ public class ProjectSecurityConfig  {
                         )
                 )
                 .oauth2Login()
+                        .and().logout().logoutSuccessUrl("/")
 
 ;
         return http.build();
