@@ -41,7 +41,10 @@ public class BudgetCRUDService {
         ResponseRestModel responseRestModel = new ResponseRestModel();
         BudgetTableEntity budgetTableEntity = new BudgetTableEntity(budgetModel,userEmail,userFullName);
         budgetTableEntity.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
-        budgetRepository.save(budgetTableEntity);
+        BudgetTableEntity savedBudget =  budgetRepository.save(budgetTableEntity);
+
+        BudgetModel newBudgetModel = new BudgetModel(savedBudget);
+        responseRestModel.setBudgetModel(newBudgetModel);
         responseRestModel.setStatusCode(HttpStatus.OK.value());
         responseRestModel.setStatusMessage("records saved successfuly");
         return responseRestModel;

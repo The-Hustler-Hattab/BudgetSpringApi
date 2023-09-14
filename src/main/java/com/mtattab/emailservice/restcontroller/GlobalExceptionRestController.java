@@ -2,6 +2,7 @@ package com.mtattab.emailservice.restcontroller;
 
 import com.mtattab.emailservice.model.ResponseRestModel;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 
 @Slf4j
 @RestControllerAdvice(annotations = RestController.class)
+@Order(0)
 public class GlobalExceptionRestController {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ResponseRestModel> handleValidationException(MethodArgumentNotValidException ex) {
