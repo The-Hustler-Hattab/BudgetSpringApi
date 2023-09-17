@@ -49,9 +49,14 @@ public class GlobalExceptionController {
             return "";
 
         }
-        OAuth2User principal = (OAuth2User) authentication.getPrincipal();
-        Map<String, Object> attributes = principal.getAttributes();
+        if (authentication.getPrincipal() instanceof OAuth2User){
+            OAuth2User principal = (OAuth2User) authentication.getPrincipal();
+            Map<String, Object> attributes = principal.getAttributes();
+            return (String) attributes.get("name");
 
-        return (String) attributes.get("name");
+        }else return "";
+
+
+
     }
 }

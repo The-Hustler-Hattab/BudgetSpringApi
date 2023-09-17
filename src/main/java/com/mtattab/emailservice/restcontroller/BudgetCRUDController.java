@@ -66,7 +66,7 @@ public class BudgetCRUDController {
         return new ResponseEntity<>(responseRestModel, HttpStatusCode.valueOf(responseRestModel.getStatusCode()));
 
     }
-    @DeleteMapping("/deleteBudgetRecord")
+    @PostMapping("/deleteBudgetRecord")
     public ResponseEntity<ResponseRestModel> deleteBudgetRecord( @RequestBody BudgetModel budgetModel){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         ResponseRestModel responseRestModel= budgetCRUDService.deleteBudgetRecord(

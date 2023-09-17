@@ -45,7 +45,7 @@ public class BudgetTableEntity {
     public BudgetTableEntity(BudgetModel budgetModel, String userEmail, String userFullName){
         this.category= budgetModel.getCategory();
         this.color= budgetModel.getColor();
-        this.cost= budgetModel.getCost();
+        this.cost= budgetModel.getMonthlyCost();
         this.createdBy=userFullName;
         this.email=userEmail;
     }
@@ -54,7 +54,7 @@ public class BudgetTableEntity {
         this.id = budgetModel.getId();
         this.category= budgetModel.getCategory();
         this.color= budgetModel.getColor();
-        this.cost= budgetModel.getCost();
+        this.cost= budgetModel.getMonthlyCost();
 
     }
 }

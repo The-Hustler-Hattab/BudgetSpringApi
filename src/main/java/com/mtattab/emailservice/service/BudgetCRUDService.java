@@ -4,7 +4,6 @@ import com.mtattab.emailservice.entity.BudgetTableEntity;
 import com.mtattab.emailservice.model.BudgetModel;
 import com.mtattab.emailservice.model.ResponseRestModel;
 import com.mtattab.emailservice.repository.BudgetRepository;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -54,7 +53,7 @@ public class BudgetCRUDService {
         ResponseRestModel responseRestModel = new ResponseRestModel();
 
         int updatedRecs= budgetRepository.updateBudgetRecord(
-                budgetModel.getCategory(), budgetModel.getCost(),
+                budgetModel.getCategory(), budgetModel.getMonthlyCost(),
                 budgetModel.getColor(), userEmail, budgetModel.getId(),
                 Timestamp.valueOf(LocalDateTime.now()));
 

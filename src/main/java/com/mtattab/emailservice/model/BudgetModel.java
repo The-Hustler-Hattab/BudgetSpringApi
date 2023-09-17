@@ -22,7 +22,7 @@ public class BudgetModel {
 
     @NotNull
     @GreaterThanValidator(1)
-    private Long cost;
+    private Long monthlyCost;
 
 
     @NotBlank(message="color must not be blank")
@@ -31,7 +31,7 @@ public class BudgetModel {
     public BudgetModel(BudgetTableEntity budgetTableEntity){
         this.id= budgetTableEntity.getId();
         this.category= budgetTableEntity.getCategory();
-        this.cost= budgetTableEntity.getCost();
+        this.monthlyCost = budgetTableEntity.getCost();
         this.color= budgetTableEntity.getColor();
 
 
