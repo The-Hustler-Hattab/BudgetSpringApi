@@ -25,7 +25,7 @@ Before you begin, ensure you have met the following requirements:
 - [Spring Boot](https://spring.io/projects/spring-boot) installed.
 - [Okta](https://developer.okta.com) account for authentication configuration.
 - [Google Developer Console](https://console.developers.google.com) project for Google OAuth setup.
-- [Angular Budget Management](https://github.com/your/angular-app-repo) application installed and configured to use this API.
+- [Angular Budget Management](https://github.com/The-Hustler-Hattab/budget-tracking) application installed and configured to use this API.
 
 ## Getting Started
 
@@ -44,6 +44,6 @@ To get started with this API, follow these steps:
 This API is deployed to AWS cloud hosting platform Make sure to configure environment-specific properties and security settings before deploying to a production environment.
 
 ### Demo
-https://budget-spring.mtattab.com/
+https://budget-spring.mtattab.com/budget-app.mtattab.com
 ---
 Project developed by Mohammed Hattab (https://github.com/The-Hustler-Hattab)
