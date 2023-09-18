@@ -27,17 +27,7 @@ public class BudgetCRUDController {
     @Autowired
     BudgetCRUDService budgetCRUDService;
 
-    @GetMapping("/hello")
-    public String helloWorld(){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(auth);
-        System.out.println(auth.getPrincipal());
 
-        System.out.println(UserEmailUtil.getUserDetailByClaim(SecurityContextHolder.getContext().getAuthentication() , Constants.CLAIM_FULL_NAME));
-        System.out.println(UserEmailUtil.getUserDetailByClaim(SecurityContextHolder.getContext().getAuthentication() , Constants.CLAIM_EMAIL));
-
-        return "{\"word\":\"hello\"}";
-    }
 
     @GetMapping("/getSavedBudgetRecords")
     public ResponseEntity<ResponseRestModel> getAllBudgetRecord(){
