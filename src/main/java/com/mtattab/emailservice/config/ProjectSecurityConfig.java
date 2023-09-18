@@ -28,6 +28,8 @@ public class ProjectSecurityConfig  {
                 .authorizeRequests()
                 .requestMatchers("/swagger-ui/**","/v3/api-docs/**").permitAll()
                 .requestMatchers("/", "about").permitAll()
+                .requestMatchers("/actuator/health").permitAll()
+
                 .anyRequest().authenticated()
 //
 ////
