@@ -10,10 +10,11 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static com.mtattab.emailservice.consts.Constants.CORS_LOCAL;
+import static com.mtattab.emailservice.consts.Constants.CORS;
 
 
 @Configuration
@@ -50,7 +51,7 @@ public class ProjectSecurityConfig  {
                .cors(
                         corsCustomizer -> corsCustomizer.configurationSource(request -> {
                             CorsConfiguration config = new CorsConfiguration();
-                            config.setAllowedOrigins(Collections.singletonList(CORS_LOCAL));
+                            config.setAllowedOrigins(Arrays.asList(CORS));
                             config.setAllowedMethods(Collections.singletonList("*"));
                             config.setAllowCredentials(true);
                             config.setAllowedHeaders(Collections.singletonList("*"));
