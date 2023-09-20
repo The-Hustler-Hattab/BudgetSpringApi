@@ -12,7 +12,7 @@ phases:
       - echo Build started on `date`
       - pwd
       - ls -la
-      - aws s3 cp s3://aws-keys-for-ec2/keystore.jks ./src/main/resources/
+#      - aws s3 cp s3://aws-keys-for-ec2/keystore.jks ./src/main/resources/
       - mvn install
   post_build:
     commands:
