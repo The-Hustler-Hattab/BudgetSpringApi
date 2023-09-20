@@ -21,6 +21,7 @@ import static com.mtattab.emailservice.consts.Constants.BUDGET_MAPPING;
 @RestController
 @RequestMapping(path = BUDGET_MAPPING, produces = Constants.JSON)
 @Validated
+@CrossOrigin
 public class BudgetCRUDController {
 
 
