@@ -49,18 +49,18 @@ public class ProjectSecurityConfig  {
                 .oauth2ResourceServer(oauth2ResourceServerCustomizer ->
                         oauth2ResourceServerCustomizer.jwt(jwtCustomizer -> jwtCustomizer.jwtAuthenticationConverter(jwtAuthenticationConverter)))
 
-//               .cors(
-//                        corsCustomizer -> corsCustomizer.configurationSource(request -> {
-//                            CorsConfiguration config = new CorsConfiguration();
-//                            config.setAllowedOrigins(Arrays.asList(CORS));
-//                            config.setAllowedMethods(Collections.singletonList("*"));
-//                            config.setAllowCredentials(true);
-//                            config.setAllowedHeaders(Collections.singletonList("*"));
-//                            config.setMaxAge(3600L);
-//                            return config;
-//                        }
-//                        )
-//                )
+               .cors(
+                        corsCustomizer -> corsCustomizer.configurationSource(request -> {
+                            CorsConfiguration config = new CorsConfiguration();
+                            config.setAllowedOrigins(Arrays.asList(CORS));
+                            config.setAllowedMethods(Collections.singletonList("*"));
+                            config.setAllowCredentials(true);
+                            config.setAllowedHeaders(Collections.singletonList("*"));
+                            config.setMaxAge(3600L);
+                            return config;
+                        }
+                        )
+                )
                 .oauth2Login()
                         .and().logout().logoutSuccessUrl("/")
 
