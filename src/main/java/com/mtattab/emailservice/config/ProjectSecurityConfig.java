@@ -61,8 +61,8 @@ public class ProjectSecurityConfig  {
                         }
                         )
                 )
-                .oauth2Login()
-                        .and().logout().logoutSuccessUrl("/")
+//                .oauth2Login()
+//                        .and().logout().logoutSuccessUrl("/")
 
 ;
         return http.build();
