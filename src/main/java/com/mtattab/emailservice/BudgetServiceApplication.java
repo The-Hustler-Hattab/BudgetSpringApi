@@ -12,11 +12,10 @@ import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHtt
 @OpenAPIDefinition
 @EntityScan("com.mtattab.emailservice.entity")
 @EnableJdbcHttpSession
-
-public class EmailServiceApplication {
+public class BudgetServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmailServiceApplication.class, args);
+		SpringApplication.run(BudgetServiceApplication.class, args);
 	}
 
 }

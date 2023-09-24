@@ -1,10 +1,14 @@
-create database smtp_project;
+create database budget_tracking;
 
-CREATE TABLE email (
+CREATE TABLE budget (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    category VARCHAR(255) NOT NULL,
+    cost INT NOT NULL,
+    color VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_by VARCHAR(255) NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 -- spring session tables
 CREATE TABLE SPRING_SESSION (
