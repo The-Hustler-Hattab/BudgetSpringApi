@@ -3,6 +3,7 @@ import com.mtattab.emailservice.consts.Constants;
 import com.mtattab.emailservice.model.BudgetModel;
 import com.mtattab.emailservice.model.ResponseRestModel;
 import com.mtattab.emailservice.service.BudgetCRUDService;
+import com.mtattab.emailservice.service.impl.BudgetCRUDServiceImpl;
 import com.mtattab.emailservice.util.UserEmailUtil;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

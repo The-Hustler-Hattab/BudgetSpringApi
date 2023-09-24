@@ -1,4 +1,4 @@
-package com.mtattab.emailservice.security_filters;
+package com.mtattab.emailservice.filters;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
