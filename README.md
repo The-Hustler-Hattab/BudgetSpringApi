@@ -1,6 +1,6 @@
 # Budget Management Backend API
 
-This backend API is designed to support the Budget Management Angular application, providing essential CRUD (Create, Read, Update, Delete) operations for budgets, expenses, and income. The API is seamlessly integrated with Okta as resource server for user authentication and Google OAuth for secure user login.
+This backend API is designed to support the Budget Management Angular application, providing essential CRUD (Create, Read, Update, Delete) operations for budgets, expenses, and income. The API is seamlessly integrated with Okta as resource server for user authentication.
 
 ## Table of Contents
 
@@ -12,7 +12,7 @@ This backend API is designed to support the Budget Management Angular applicatio
 
 ## Features
 
-- **User Authentication**: Secure user authentication using Okta and Google OAuth.
+- **User Authentication**: Secure user authentication using Okta.
 - **CRUD Operations**: Perform CRUD operations on budgets, and expenses.
 - **Data Validation**: Input data validation and error handling.
 - **RESTful API**: Follows RESTful principles for API design.
@@ -24,7 +24,6 @@ Before you begin, ensure you have met the following requirements:
 - Java 17 or higher installed.
 - [Spring Boot](https://spring.io/projects/spring-boot) installed.
 - [Okta](https://developer.okta.com) account for authentication configuration.
-- [Google Developer Console](https://console.developers.google.com) project for Google OAuth setup.
 - [Angular Budget Management](https://github.com/The-Hustler-Hattab/budget-tracking) application installed and configured to use this API.
 
 ## Getting Started
@@ -34,7 +33,7 @@ To get started with this API, follow these steps:
    git clone https://github.com/The-Hustler-Hattab/BudgetSpringApi.git
 2. Setup db tables using schema.sql present in resources folder.
 3. Add mysql connection details to application.properties.
-4. Add Google Oauth credentials, and OKTA JWK URI to application.properties.
+4. Add OKTA JWK URI to application.properties.
 5. Create custom claims on OKTA server:  
    UserEmail: user.email  
    UserFullName: user.firstName+ ' ' +user.lastName
