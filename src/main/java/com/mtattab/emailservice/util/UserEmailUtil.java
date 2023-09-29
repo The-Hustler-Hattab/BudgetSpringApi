@@ -2,10 +2,17 @@ package com.mtattab.emailservice.util;
 
 import com.mtattab.emailservice.consts.Constants;
 import lombok.experimental.UtilityClass;
+import org.aspectj.weaver.ast.Var;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.jwt.Jwt;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @UtilityClass
 public class UserEmailUtil {

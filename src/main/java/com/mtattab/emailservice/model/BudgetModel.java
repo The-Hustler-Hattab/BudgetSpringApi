@@ -25,7 +25,6 @@ public class BudgetModel {
     private Long monthlyCost;
 
 
-    @NotBlank(message="color must not be blank")
     private String color;
 
     public BudgetModel(BudgetTableEntity budgetTableEntity){
