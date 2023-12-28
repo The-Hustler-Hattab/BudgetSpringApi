@@ -1,5 +1,6 @@
 package com.mtattab.emailservice.filters;
 
+import io.github.pixee.security.Newlines;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ public class CsrfCookieFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
         if(null != csrfToken.getHeaderName()){
-            response.setHeader(csrfToken.getHeaderName(), csrfToken.getToken());
+            response.setHeader(csrfToken.getHeaderName(), Newlines.stripAll(csrfToken.getToken()));
 
         }
         filterChain.doFilter(request, response);
