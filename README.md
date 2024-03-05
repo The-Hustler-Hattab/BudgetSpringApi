@@ -43,6 +43,6 @@ To get started with this API, follow these steps:
 This API is deployed to AWS cloud hosting platform Make sure to configure environment-specific properties and security settings before deploying to a production environment.
 
 ### Demo
-https://budget-spring.mtattab.com/
+https://budget-tracker-tvan66p23a-uc.a.run.app
 ---
 Project developed by Mohammed Hattab (https://github.com/The-Hustler-Hattab)
